@@ -14,7 +14,8 @@ urlpatterns = [
     path('viewProfile', views.viewProfile, name="viewProfile"),
     path('requestForm', views.requestForm, name="requestForm"),
     path('send_notification/', views.send_notification, name='send_notification'),
-    path('xxnetwork', views.xxnetwork, name='xxnetwork')
+    path('xxnetwork', views.xxnetwork, name='xxnetwork'),
+    path('xxnetwork2', views.xxnetwork2, name='xxnetwork2')
 ] 
 
 if settings.DEBUG:

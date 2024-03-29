@@ -195,3 +195,6 @@ def send_notification(request):
 
 def xxnetwork(request):
     return render(request, "authentication/xxnetwork.html")
+
+def xxnetwork2(request):
+    return render(request, "authentication/xxnetwork2.html")

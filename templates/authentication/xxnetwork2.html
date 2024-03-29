@@ -1,15 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% load static %}
     <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static 'css/xx.css' %}" />
-    
+
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    <script src="xxdk-wasm-0.3.19/dist/wasm_exec.js"></script>
-    <script src="xxdk-wasm-0.3.19/dist/bundle.js"></script>
+    <script src="https://elixxir-bins.s3-us-west-1.amazonaws.com/wasm/xxdk-wasm-0.3.19/dist/wasm_exec.js"></script>
+    <script src="https://elixxir-bins.s3-us-west-1.amazonaws.com/wasm/xxdk-wasm-0.3.19/dist/bundle.js"></script>
     <!-- https://github.com/beatgammit/base64-js //-->
     <script src="{% static 'js/base64js.min.js' %}"></script>
     <title>HTML xxdk Example</title>
@@ -21,7 +19,6 @@
     // encoder/decoder for Uint8Array strings
     const encoder = new TextEncoder();
     const decoder = new TextDecoder('utf8');
-    xxdk.setXXDKBasePath(window.location.href + 'xxdk-wasm');
 
     xxdk.InitXXDK().then(async(xx) => {
         // Now set up cMix, while other examples download
@@ -174,7 +171,8 @@
 
         const msg = input.value;
 
-        return await dm.SendText(myPubkey, myToken, msg, 0, encoder.encode("")).then((sendReport) => {
+        return await dm.SendText(myPubkey, myToken, msg, 0,
+                                 encoder.encode("")).then((sendReport) => {
             console.log(sendReport);
             input.value = "";
             return true;
